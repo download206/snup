@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: snup-marketing
+    runtime: php
+    buildCommand: |
+      composer install --optimize-autoloader --no-dev
+      touch database/database.sqlite
+      php artisan key:generate
+    startCommand: php artisan serve --host=0.0.0.0 --port=8000
+    envVars:
+      # Configurações básicas
+      - key: APP_NAME
+        value: "Snup Marketing"  # Altere para o nome do seu negócio
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        value: "base64:tFv8X4gLvWo/5YaqE6JOPMDdYcpjYnzKo3SJQS6os5g="
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: "/var/www/database/database.sqlite"
+
+      # Banco de dados
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: "/var/www/database/database.sqlite"  # Caminho no servidor
+
+      # Sessão e Cache
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+
+      # E-mail (configuração básica)
+      - key: MAIL_MAILER
+        value: log  # Mude para 'smtp' em produção
+      - key: MAIL_FROM_ADDRESS
+        value: "contato@snupmarketing.com"  # Atualize
+      - key: MAIL_FROM_NAME
+        value: "Snup Marketing"

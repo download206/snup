@@ -1,0 +1,50 @@
+/* Estilos globais */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), url(' );
+    background-size: cover;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.bg-primary {
+    background-color: #4e73df !important;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+
+/* Página de Serviços */
+.services-header {
+    background: linear-gradient(rgba(78, 115, 223, 0.9), rgba(78, 115, 223, 0.9)), 
+                url('../images/services-bg.jpg') center/cover;
+}
+
+.icon-square {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    transition: all 0.3s ease;
+    border-top: 3px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-top-color: #4e73df;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
