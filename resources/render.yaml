@@ -2,7 +2,7 @@
 services:
   - type: web
     name: snup-marketing
-    runtime: php
+    runtime: docker
     buildCommand: |
       composer install --optimize-autoloader --no-dev
       npm install && npm run build
