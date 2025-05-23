@@ -1,3 +1,4 @@
+# render.yaml (na raiz do projeto)
 services:
   - type: web
     name: snup-marketing
@@ -5,9 +6,13 @@ services:
     buildCommand: |
       composer install --optimize-autoloader --no-dev
       npm install && npm run build
+      php artisan key:generate
+      touch database/database.sqlite
     startCommand: php artisan serve --host=0.0.0.0 --port=8000
     envVars:
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
-        value: false 
+        value: false
+      - key: APP_KEY
+        value: "base64:tFv8X4gLvWo/5YaqE6JOPMDdYcpjYnzKo3SJQS6os5g="
